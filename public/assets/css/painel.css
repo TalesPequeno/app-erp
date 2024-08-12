@@ -1,0 +1,169 @@
+.bg-light-blue {
+    background-color: #55C1E7; /* Define uma cor de fundo azul claro */
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff; /* Define a cor do texto dos links da navbar como branco */
+}
+
+.sidebar-custom {
+    border-right: 1px solid #ddd; /* Adiciona uma borda à direita da sidebar */
+    height: 100vh; /* Define a altura da sidebar como 100% da altura da viewport */
+    position: fixed; /* Fixa a posição da sidebar na tela */
+    top: 0; /* Alinha a sidebar ao topo da página */
+    left: 0; /* Alinha a sidebar à esquerda da página */
+    width: 15%; /* Define a largura da sidebar como 15% da largura da viewport */
+    overflow-y: auto; /* Permite rolagem vertical na sidebar */
+    padding-top: 10px; /* Adiciona um padding no topo da sidebar */
+}
+
+.main-content {
+    margin-left: 15%; /* Adiciona uma margem à esquerda para compensar a largura da sidebar */
+    padding-top: 56px; /* Adiciona um padding no topo do conteúdo principal */
+}
+
+.sidebar-sticky .profile-initials {
+    display: inline-flex; /* Define um layout flexível para alinhar o conteúdo ao centro */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    width: 100px; /* Define a largura do círculo das iniciais do perfil */
+    height: 100px; /* Define a altura do círculo das iniciais do perfil */
+    background-color: #55C1E7; /* Define a cor de fundo do círculo das iniciais do perfil */
+    color: #ffffff; /* Define a cor do texto como branco */
+    font-size: 2rem; /* Define o tamanho da fonte como 2rem */
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 50%; /* Define as bordas do elemento como um círculo */
+    margin-top: 10px; /* Adiciona uma margem superior ao círculo das iniciais */
+}
+
+.sidebar-sticky p {
+    font-size: 1.1rem; /* Define o tamanho da fonte dos parágrafos na sidebar como 1.1rem */
+    font-weight: bold; /* Deixa o texto dos parágrafos em negrito */
+}
+
+.nav-link {
+    font-size: 1rem; /* Define o tamanho da fonte dos links de navegação como 1rem */
+    font-weight: bold; /* Deixa o texto dos links de navegação em negrito */
+    text-align: left; /* Alinha o texto dos links de navegação à esquerda */
+    color: black !important; /* Define a cor dos links como preto, com alta prioridade */
+}
+
+.nav-link i {
+    margin-right: 8px; /* Adiciona uma margem à direita dos ícones nos links de navegação */
+}
+
+.nav-link.active {
+    color: #55C1E7 !important; /* Define a cor do texto dos links ativos como azul claro */
+    border-left: 4px solid #55C1E7 !important; /* Adiciona uma borda esquerda azul claro nos links ativos */
+    background-color: #f5f5f5; /* Define a cor de fundo dos links ativos como cinza claro */
+    padding-left: 12px; /* Adiciona um padding à esquerda dos links ativos */
+}
+
+.nav-item .nav-link + ul.nav {
+    margin-left: 10px; /* Adiciona uma margem à esquerda em submenus de navegação */
+    padding-left: 10px; /* Adiciona um padding à esquerda em submenus de navegação */
+    border-left: 2px solid #ddd; /* Adiciona uma borda à esquerda em submenus de navegação */
+}
+
+.btn-link {
+    color: black !important; /* Define a cor dos botões de link como preto */
+    text-decoration: none; /* Remove o sublinhado dos botões de link */
+    background-color: transparent; /* Define a cor de fundo dos botões de link como transparente */
+    border: none; /* Remove as bordas dos botões de link */
+    padding: 0; /* Remove o padding dos botões de link */
+    cursor: pointer; /* Define o cursor como ponteiro ao passar sobre os botões de link */
+}
+
+.btn-link:hover {
+    color: #55C1E7 !important; /* Muda a cor dos botões de link para azul claro ao passar o mouse */
+    text-decoration: none; /* Mantém o texto dos botões de link sem sublinhado ao passar o mouse */
+}
+
+.nav-link.active i {
+    color: #55C1E7 !important; /* Muda a cor dos ícones nos links ativos para azul claro */
+}
+
+.border-custom {
+    border: 1px solid #ddd; /* Adiciona uma borda cinza clara aos elementos com essa classe */
+    border-radius: 5px; /* Adiciona um raio de borda de 5px para arredondar os cantos */
+    background-color: #ffffff; /* Define o fundo branco para os elementos com essa classe */
+}
+
+.bg-light-blue {
+    background-color: #343a40; /* Sobrescreve a cor de fundo azul claro para um tom mais escuro */
+}
+
+.page-title {
+    font-size: 3rem; /* Define o tamanho da fonte do título da página como 3rem */
+    font-weight: bold; /* Deixa o título da página em negrito */
+    padding-left: 1rem; /* Adiciona um padding à esquerda do título da página */
+}
+
+.separator-fullwidth {
+    border-top: 3px solid #ddd; /* Adiciona uma borda superior de 3px cinza clara */
+    margin-top: 1rem; /* Adiciona uma margem superior de 1rem */
+    margin-bottom: 1rem; /* Adiciona uma margem inferior de 1rem */
+    width: 100%; /* Define a largura do separador como 100% */
+    position: relative; /* Define a posição do separador como relativa */
+    left: 0; /* Alinha o separador à esquerda */
+}
+
+.container-fluid {
+    padding-left: 0; /* Remove o padding à esquerda dos containers fluidos */
+    padding-right: 0; /* Remove o padding à direita dos containers fluidos */
+}
+
+.no-gutters {
+    margin-left: 0; /* Remove a margem à esquerda */
+    margin-right: 0; /* Remove a margem à direita */
+}
+
+.search-box {
+    margin-bottom: 1rem; /* Adiciona uma margem inferior de 1rem para a caixa de pesquisa */
+}
+
+.input-group-text {
+    background-color: #ffffff; /* Define o fundo branco para o texto dentro de um grupo de input */
+    border-right: 0; /* Remove a borda direita do texto dentro de um grupo de input */
+}
+
+.btn-primary {
+    background-color: #5867dd; /* Define uma cor de fundo azul para o botão primário */
+    border-color: #5867dd; /* Define a cor da borda para combinar com o fundo do botão */
+}
+
+.btn-light {
+    background-color: #f8f9fa; /* Define uma cor de fundo cinza claro para o botão claro */
+    border-color: #ced4da; /* Define uma cor de borda cinza para o botão claro */
+}
+
+.btn-success {
+    background-color: #28a745; /* Define uma cor de fundo verde para o botão de sucesso */
+    border-color: #28a745; /* Define a cor da borda para combinar com o fundo do botão */
+}
+
+.form-control-custom {
+    background-color: #ffffff !important; /* Define o fundo branco para campos de formulário customizados */
+    max-width: 100%; /* Define a largura máxima como 100% */
+    width: 100%; /* Define a largura como 100% */
+}
+
+.form-floating-custom {
+    margin-bottom: 1rem; /* Adiciona uma margem inferior de 1rem */
+}
+
+.form-floating-custom label {
+    color: #6c757d; /* Define a cor do rótulo como cinza */
+}
+
+.custom-select-bg {
+    background-color: white !important; /* Define o fundo branco para seleções customizadas */
+}
+
+.custom-select-bg option[value=""] {
+    color: #6c757d; /* Define a cor cinza para a opção vazia em seleções customizadas */
+}
+
+.custom-select-bg:invalid {
+    color: #000000; /* Define a cor preta para seleções inválidas */
+}

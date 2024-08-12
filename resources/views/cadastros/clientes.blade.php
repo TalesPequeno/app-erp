@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Dashboard</h1>
-    <p>Bem-vindo à companhia: {{ $company->name }}</p>
+    <h1>Clientes</h1>
+    <!-- Conteúdo da página de Clientes -->
 </div>
 @endsection
