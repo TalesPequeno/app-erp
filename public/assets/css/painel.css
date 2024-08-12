@@ -171,3 +171,23 @@
 input {
     text-transform: uppercase;
 }
+
+.btn-reveal:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Cor preta com 10% de opacidade */
+    border: 1px solid rgba(0, 0, 0, 0.5); /* Borda preta com 20% de opacidade */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra suave ao redor do botão */
+}
+
+.btn-reveal {
+    position: relative;
+    left: -10px; /* Ajuste o valor conforme necessário */
+}
+
+.dropdown-item:hover {
+    background-color: #cccccc; /* Cor de fundo cinza */
+    color: #000000; /* Cor do texto preta */
+}
+
+.dropdown-item span {
+    margin-right: 8px; /* Adiciona 8px de espaço à direita do ícone */
+}

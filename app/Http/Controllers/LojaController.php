@@ -77,27 +77,53 @@ class LojaController extends Controller
     public function show($id)
     {
         $loja = Loja::findOrFail($id);
+
         return view('lojas.show', compact('loja'));
     }
 
     public function edit($id)
     {
+        // Encontra a loja pelo ID
         $loja = Loja::findOrFail($id);
-        $paises = Pais::all();
-        return view('lojas.edit', compact('loja', 'paises'));
+
+        // Retorna a view com o formulário de edição
+        return view('lojas.edit', compact('loja'));
     }
 
     public function update(Request $request, $id)
     {
+        // Valida os dados do formulário
+        $validated = $request->validate([
+            'razao_social' => 'required|string|max:255',
+            'nome_fantasia' => 'required|string|max:255',
+            'cnpj' => 'required|string|size:18',
+            'cep' => 'required|string|size:9',
+            'rua' => 'required|string|max:255',
+            'numero' => 'required|string|max:10',
+            'complemento' => 'nullable|string|max:255',
+            'bairro' => 'required|string|max:255',
+            'pais' => 'required|integer',
+            'estado' => 'nullable|string|max:2',
+            'estado_input' => 'nullable|string|max:255',
+            'cidade' => 'nullable|string|max:255',
+            'cidade_input' => 'nullable|string|max:255',
+        ]);
+
+        // Atualiza a loja com os dados validados
         $loja = Loja::findOrFail($id);
-        $loja->update($request->all());
+        $loja->update($validated);
+
+        // Redireciona de volta para a lista de lojas com uma mensagem de sucesso
         return redirect()->route('lojas.index')->with('success', 'Loja atualizada com sucesso.');
     }
 
     public function destroy($id)
     {
+        // Encontra a loja pelo ID e a deleta
         $loja = Loja::findOrFail($id);
         $loja->delete();
-        return redirect()->route('lojas.index')->with('success', 'Loja excluída com sucesso.');
+
+        // Redireciona de volta para a lista de lojas com uma mensagem de sucesso
+        return redirect()->route('lojas.index')->with('success', 'Loja deletada com sucesso.');
     }
 }

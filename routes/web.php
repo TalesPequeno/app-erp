@@ -21,6 +21,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::resource('lojas', LojaController::class);
 Route::get('/lojas', [LojaController::class, 'index'])->name('lojas.index');
+Route::get('/lojas/{id}', [LojaController::class, 'show'])->name('lojas.show');
+Route::get('/lojas/{id}/edit', [LojaController::class, 'edit'])->name('lojas.edit');
+Route::put('/lojas/{id}', [LojaController::class, 'update'])->name('lojas.update');
+Route::delete('/lojas/{id}', [LojaController::class, 'destroy'])->name('lojas.destroy');
 
 Route::get('cadastros/lojas', [CadastroController::class, 'createLoja'])->name('cadastros.lojas');
 Route::get('cadastros/clientes', [CadastroController::class, 'clientes'])->name('cadastros.clientes');
