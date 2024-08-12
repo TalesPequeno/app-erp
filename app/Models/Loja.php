@@ -23,6 +23,7 @@ class Loja extends Model
         'cidade',
         'estado',
         'pais',
+        'company_id',
     ];
 
     public function estado()

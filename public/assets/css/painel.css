@@ -167,3 +167,7 @@
 .custom-select-bg:invalid {
     color: #000000; /* Define a cor preta para seleções inválidas */
 }
+
+input {
+    text-transform: uppercase;
+}

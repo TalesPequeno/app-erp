@@ -39,7 +39,7 @@ class LojaController extends Controller
             'cidade' => 'nullable|string|max:255',
             'cidade_input' => 'nullable|string|max:255',
         ]);
-    
+
         $cidade = $request->input('cidade');
         if ($request->input('pais') != 1) {
             $cidade = $request->input('cidade_input');
@@ -54,6 +54,8 @@ class LojaController extends Controller
     
         $pais = Pais::find($request->input('pais'))->nome_pt;
     
+        $companyId = session('company_id');
+    
         Loja::create([
             'razao_social' => $validated['razao_social'],
             'nome_fantasia' => $validated['nome_fantasia'],
@@ -66,10 +68,11 @@ class LojaController extends Controller
             'pais' => $pais,
             'estado' => $estado,
             'cidade' => $cidade,
+            'company_id' => $companyId,
         ]);
     
         return redirect()->route('lojas.index')->with('success', 'Loja criada com sucesso.');
-    }    
+    }
 
     public function show($id)
     {
