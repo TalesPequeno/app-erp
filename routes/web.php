@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProdutoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,6 @@ Route::get('/get-cidades/{uf}', [CadastroController::class, 'getCidades']);
 
 Route::resource('clientes', ClienteController::class);
 
-Route::get('/produtos', [LojaController::class, 'index'])->name('produtos.index');
+Route::resource('produtos', ProdutoController::class);
 
 Route::get('/fornecedores', [LojaController::class, 'index'])->name('fornecedores.index');
