@@ -23,22 +23,22 @@
                 </a>
             </li>
             <li class="nav-item mb-4">
-                <button class="nav-link btn btn-link {{ Str::startsWith($currentRoute, 'cadastros') ? 'active' : '' }}" onclick="toggleSubMenu('cadastros-submenu')">
+                <button class="nav-link btn btn-link {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' ? 'active' : '' }}" onclick="toggleSubMenu('cadastros-submenu')">
                     <i data-feather="users"></i>
                     Cadastros
                 </button>
-                <ul class="nav flex-column ml-3 {{ Str::startsWith($currentRoute, 'cadastros') ? '' : 'd-none' }}" id="cadastros-submenu">
+                <ul class="nav flex-column ml-3 {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' ? '' : 'd-none' }}" id="cadastros-submenu">
                     <li class="nav-item">
-                        <a class="nav-link {{ $currentRoute == 'cadastros.lojas' ? 'active' : '' }}" href="{{ route('cadastros.lojas') }}">Lojas</a>
+                        <a class="nav-link {{ $currentRoute == 'lojas.index' ? 'active' : '' }}" href="{{ route('lojas.index') }}">Lojas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $currentRoute == 'cadastros.clientes' ? 'active' : '' }}" href="{{ route('cadastros.clientes') }}">Clientes</a>
+                        <a class="nav-link {{ $currentRoute == 'clientes.index' ? 'active' : '' }}" href="{{ route('clientes.index') }}">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $currentRoute == 'cadastros.produtos' ? 'active' : '' }}" href="{{ route('cadastros.produtos') }}">Produtos</a>
+                        <a class="nav-link {{ $currentRoute == 'produtos.index' ? 'active' : '' }}" href="{{ route('produtos.index') }}">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $currentRoute == 'cadastros.fornecedores' ? 'active' : '' }}" href="{{ route('cadastros.fornecedores') }}">Fornecedores</a>
+                        <a class="nav-link {{ $currentRoute == 'fornecedores.index' ? 'active' : '' }}" href="{{ route('fornecedores.index') }}">Fornecedores</a>
                     </li>
                 </ul>
             </li>
@@ -111,12 +111,6 @@
                         <a class="nav-link text-black" href="#">Sub-opção 2</a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item mb-4">
-                <a class="nav-link {{ $currentRoute == 'lojas.index' ? 'active' : '' }}" href="{{ route('lojas.index') }}">
-                    <i data-feather="share-2"></i>
-                    Lojas
-                </a>
             </li>
         </ul>
     </div>

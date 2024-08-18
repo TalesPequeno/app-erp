@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\LojaController;
+use App\Http\Controllers\ClienteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,11 +21,6 @@ Route::get('/company/access', [CompanyController::class, 'access'])->name('compa
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('lojas', LojaController::class);
-Route::get('/lojas', [LojaController::class, 'index'])->name('lojas.index');
-Route::get('/lojas/{id}', [LojaController::class, 'show'])->name('lojas.show');
-Route::get('/lojas/{id}/edit', [LojaController::class, 'edit'])->name('lojas.edit');
-Route::put('/lojas/{id}', [LojaController::class, 'update'])->name('lojas.update');
-Route::delete('/lojas/{id}', [LojaController::class, 'destroy'])->name('lojas.destroy');
 
 Route::get('cadastros/lojas', [CadastroController::class, 'createLoja'])->name('cadastros.lojas');
 Route::get('cadastros/clientes', [CadastroController::class, 'clientes'])->name('cadastros.clientes');
@@ -34,3 +30,8 @@ Route::get('cadastros/fornecedores', [CadastroController::class, 'fornecedores']
 Route::get('/get-estados/{pais_id}', [CadastroController::class, 'getEstados']);
 Route::get('/get-cidades/{uf}', [CadastroController::class, 'getCidades']);
 
+Route::resource('clientes', ClienteController::class);
+
+Route::get('/produtos', [LojaController::class, 'index'])->name('produtos.index');
+
+Route::get('/fornecedores', [LojaController::class, 'index'])->name('fornecedores.index');

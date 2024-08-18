@@ -11,8 +11,7 @@ class CadastroController extends Controller
 {
     public function createLoja()
     {
-        $paises = Pais::all();
-        return view('cadastros.create-loja', compact('paises'));
+        return view('lojas.index');
     }
 
     public function getEstados($pais_id)

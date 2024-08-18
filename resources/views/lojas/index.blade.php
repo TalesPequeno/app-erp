@@ -23,7 +23,7 @@
             <button class="btn btn-light mr-2">
                 <i class="fas fa-file-export"></i> Export
             </button>
-            <a href="{{ route('cadastros.lojas') }}" class="btn btn-success">
+            <a href="{{ route('lojas.create') }}" class="btn btn-success">
                 <i class="fas fa-plus"></i> Nova Loja
             </a>
         </div>
