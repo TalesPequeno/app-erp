@@ -57,20 +57,6 @@
                 </ul>
             </li>
             <li class="nav-item mb-4">
-                <button class="nav-link btn btn-link" onclick="toggleSubMenu('produtos-submenu')">
-                    <i data-feather="box"></i>
-                    Produtos
-                </button>
-                <ul class="nav flex-column ml-3 d-none" id="produtos-submenu">
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="#">Sub-opção 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="#">Sub-opção 2</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item mb-4">
                 <button class="nav-link btn btn-link" onclick="toggleSubMenu('servicos-submenu')">
                     <i data-feather="briefcase"></i>
                     Serviços
@@ -85,18 +71,10 @@
                 </ul>
             </li>
             <li class="nav-item mb-4">
-                <button class="nav-link btn btn-link" onclick="toggleSubMenu('estoque-submenu')">
+                <a class="nav-link {{ $currentRoute == 'estoques.index' ? 'active' : '' }}" href="{{ route('estoques.index') }}">
                     <i data-feather="layers"></i>
                     Estoque
-                </button>
-                <ul class="nav flex-column ml-3 d-none" id="estoque-submenu">
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="#">Sub-opção 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="#">Sub-opção 2</a>
-                    </li>
-                </ul>
+                </a>
             </li>
             <li class="nav-item mb-4">
                 <button class="nav-link btn btn-link" onclick="toggleSubMenu('compras-submenu')">
