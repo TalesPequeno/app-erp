@@ -29,6 +29,7 @@
                     <td>{{ $cliente->telefone }}</td>
                     <td>
                         <a href="{{ route('clientes.edit', $cliente->id) }}" class="btn btn-warning">Editar</a>
+                        <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info">Visualizar</a>
                         <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
