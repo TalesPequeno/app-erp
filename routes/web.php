@@ -8,6 +8,7 @@ use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\LojaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\FornecedorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,4 +36,4 @@ Route::resource('clientes', ClienteController::class);
 
 Route::resource('produtos', ProdutoController::class);
 
-Route::get('/fornecedores', [LojaController::class, 'index'])->name('fornecedores.index');
+Route::resource('fornecedores', FornecedorController::class);
