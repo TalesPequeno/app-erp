@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/company/access', [CompanyController::class, 'access'])->name('company.access');
+Route::resource('companies', CompanyController::class);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
