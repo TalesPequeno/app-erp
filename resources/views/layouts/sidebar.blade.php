@@ -38,7 +38,7 @@
                         <a class="nav-link {{ $currentRoute == 'produtos.index' ? 'active' : '' }}" href="{{ route('produtos.index') }}">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ $currentRoute == 'fornecedores.index' ? 'active' : '' }}" href="{{ route('fornecedores.index') }}">Fornecedores</a>
+                        <a class="nav-link {{ $currentRoute == 'suppliers.index' ? 'active' : '' }}" href="{{ route('suppliers.index') }}">Fornecedores</a>
                     </li>
                 </ul>
             </li>
