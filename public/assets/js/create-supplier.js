@@ -40,30 +40,28 @@ function disableSelectOption(selectId, value) {
 
 // Função para exibir ou ocultar campos com base no país
 function toggleFields(paisId) {
-    const estadoSelect = document.getElementById('estado');
-    const estadoInput = document.getElementById('estado_input');
-    const cidadeSelect = document.getElementById('cidade');
-    const cidadeInput = document.getElementById('cidade_input');
-
     const isBrazil = paisId == 1; // Se Brasil
-    estadoSelect.style.display = isBrazil ? 'block' : 'none';
-    estadoSelect.disabled = !isBrazil;
-    estadoInput.style.display = isBrazil ? 'none' : 'block';
-    estadoInput.disabled = isBrazil;
-    cidadeSelect.style.display = isBrazil ? 'block' : 'none';
-    cidadeSelect.disabled = !isBrazil;
-    cidadeInput.style.display = isBrazil ? 'none' : 'block';
-    cidadeInput.disabled = isBrazil;
+
+    document.getElementById('estado').style.display = isBrazil ? 'block' : 'none';
+    document.getElementById('estado').disabled = !isBrazil;
+
+    document.getElementById('cidade').style.display = isBrazil ? 'block' : 'none';
+    document.getElementById('cidade').disabled = !isBrazil;
+
+    document.getElementById('estado_input').style.display = isBrazil ? 'none' : 'block';
+    document.getElementById('estado_input').disabled = isBrazil;
+
+    document.getElementById('cidade_input').style.display = isBrazil ? 'none' : 'block';
+    document.getElementById('cidade_input').disabled = isBrazil;
 
     // Limpa o select de cidades ao mudar o país
-    cidadeSelect.innerHTML = '<option value="">Selecione a Cidade</option>';
+    document.getElementById('cidade').innerHTML = '<option value="">Selecione a Cidade</option>';
 }
 
 // Gerencia a exibição e habilitação dos campos de estado e cidade com base na seleção do país
 document.getElementById('pais').addEventListener('change', function () {
     const paisId = this.value;
     disableSelectOption('pais', '');
-
     toggleFields(paisId);
 
     if (paisId == 1) {
@@ -118,25 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const cepInput = document.getElementById('postal_code');
 
     if (cpfCnpjInput) {
-        cpfCnpjInput.addEventListener('input', function () {
-            formatCpfCnpj(cpfCnpjInput);
-        });
+        cpfCnpjInput.addEventListener('input', () => formatCpfCnpj(cpfCnpjInput));
     }
 
     if (cepInput) {
-        cepInput.addEventListener('input', function () {
-            formatCep(cepInput);
-        });
+        cepInput.addEventListener('input', () => formatCep(cepInput));
     }
-
-    document.getElementById('pais').addEventListener('change', function () {
-        const paisId = this.value;
-        toggleFields(paisId);
-        // Adicione aqui a lógica para buscar estados
-    });
-
-    document.getElementById('estado').addEventListener('change', function () {
-        const estadoId = this.value;
-        // Adicione aqui a lógica para buscar cidades
-    });
 });

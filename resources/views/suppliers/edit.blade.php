@@ -21,58 +21,100 @@
     </div>
     <div class="row no-gutters justify-content-center">
         <div class="col-md-8 col-lg-6 pl-3 pr-3">
-            <form action="{{ route('fornecedores.update', $fornecedor->id) }}" method="POST">
+            <form action="{{ route('suppliers.update', $supplier->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                @foreach ([
-                    ['name', 'Nome', 'text', true],
-                    ['fantasy_name', 'Nome Fantasia', 'text'],
-                    ['cpf_cnpj', 'CPF/CNPJ', 'text', false, 'maxlength=18 oninput=formatCpfCnpj(this)'],
-                    ['birth_date', 'Data de Nascimento', 'date'],
-                    ['email', 'E-mail', 'email'],
-                    ['phone', 'Telefone', 'tel'],
-                    ['cell', 'Celular', 'tel'],
-                    ['address', 'Endereço', 'text'],
-                    ['number', 'Número', 'text', false, 'class=form-control id=numero'],
-                    ['complement', 'Complemento', 'text'],
-                    ['neighborhood', 'Bairro', 'text'],
-                    ['postal_code', 'CEP', 'text', false, 'maxlength=9 oninput=formatCep(this)'],
-                    ['city', 'Cidade', 'text'],
-                    ['state', 'Estado', 'text'],
-                    ['pais', 'País', 'text'],
-                ] as [$name, $label, $type, $required = false, $extra = ''])
-                    <div class="form-floating mb-3">
-                        <input type="{{ $type }}" class="form-control" id="{{ $name }}" name="{{ $name }}" placeholder="{{ $label }}" value="{{ old($name, $fornecedor->$name) }}" {{ $required ? 'required' : '' }} {!! $extra !!}>
-                        <label for="{{ $name }}">{{ $label }}</label>
-                        @error($name) <small class="text-danger">{{ $message }}</small> @enderror
-                    </div>
-                @endforeach
-
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="status" name="status" required>
-                        <option value="ativo" {{ old('status', $fornecedor->status) == 'ativo' ? 'selected' : '' }}>Ativo</option>
-                        <option value="inativo" {{ old('status', $fornecedor->status) == 'inativo' ? 'selected' : '' }}>Inativo</option>
-                    </select>
-                    <label for="status">Status</label>
-                    @error('status') <small class="text-danger">{{ $message }}</small> @enderror
+                    <input type="text" class="form-control" id="nome" name="nome" required placeholder="Nome" value="{{ old('nome', $supplier->nome) }}">
+                    <label for="nome">Nome</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" id="descricao" name="descricao" placeholder="Descrição">{{ old('descricao', $fornecedor->descricao) }}</textarea>
+                    <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" placeholder="Nome Fantasia" value="{{ old('nome_fantasia', $supplier->nome_fantasia) }}">
+                    <label for="nome_fantasia">Nome Fantasia</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" placeholder="CPF/CNPJ" maxlength="18" value="{{ old('cpf_cnpj', $supplier->cpf_cnpj) }}" oninput="formatCpfCnpj(this)">
+                    <label for="cpf_cnpj">CPF/CNPJ</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" value="{{ old('email', $supplier->email) }}">
+                    <label for="email">E-mail</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" value="{{ old('telefone', $supplier->telefone) }}">
+                    <label for="telefone">Telefone</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" value="{{ old('celular', $supplier->celular) }}">
+                    <label for="celular">Celular</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" value="{{ old('endereco', $supplier->endereco) }}">
+                    <label for="endereco">Endereço</label>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-md-3 form-floating mb-3">
+                        <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" value="{{ old('numero', $supplier->numero) }}">
+                        <label for="numero">Número</label>
+                    </div>
+                    <div class="col-md-9 form-floating mb-3">
+                        <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento" value="{{ old('complemento', $supplier->complemento) }}">
+                        <label for="complemento">Complemento</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" value="{{ old('bairro', $supplier->bairro) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep', $supplier->cep) }}" maxlength="9" oninput="formatCep(this)">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" value="{{ old('cidade', $supplier->cidade) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" name="estado" value="{{ old('estado', $supplier->estado) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pais" class="form-label">País</label>
+                    <input type="text" class="form-control" id="pais" name="pais" value="{{ old('pais', $supplier->pais) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <input type="text" class="form-control" id="status" name="status" value="{{ old('status', $supplier->status) }}">
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="descricao" name="descricao" placeholder="Descrição">{{ old('descricao', $supplier->descricao) }}</textarea>
                     <label for="descricao">Descrição</label>
-                    @error('descricao') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
 
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-success btn-lg mr-2">Atualizar</button>
-                    <a href="{{ route('fornecedores.index') }}" class="btn btn-outline-danger btn-lg ml-2">Cancelar</a>
+                    <a href="{{ route('suppliers.index') }}" class="btn btn-outline-danger btn-lg ml-2">Cancelar</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<script src="{{ asset('assets/js/form-format.js') }}"></script>
+<script src="{{ asset('assets/js/edit-supplier.js') }}"></script>
 
 @endsection

@@ -37,7 +37,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>CNPJ</th>
+                        <th>CPF/CNPJ</th>
                         <th>Telefone</th>
                         <th>Email</th>
                         <th class="text-end">Ações</th>
@@ -47,9 +47,9 @@
                     @forelse($suppliers as $supplier)
                     <tr>
                         <td>{{ $supplier->id }}</td>
-                        <td>{{ $supplier->name }}</td>
+                        <td>{{ $supplier->nome }}</td>
                         <td>{{ $supplier->cpf_cnpj }}</td>
-                        <td>{{ $supplier->phone }}</td>
+                        <td>{{ $supplier->telefone }}</td>
                         <td>{{ $supplier->email }}</td>
                         <td class="text-end">
                             <div class="font-sans-serif btn-reveal-trigger position-static">

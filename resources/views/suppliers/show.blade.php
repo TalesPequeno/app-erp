@@ -19,43 +19,43 @@
                 <div class="card-body">
                     <dl class="row">
                         <dt class="col-sm-4">Nome:</dt>
-                        <dd class="col-sm-8">{{ $supplier->name }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->nome }}</dd>
 
                         <dt class="col-sm-4">Nome Fantasia:</dt>
-                        <dd class="col-sm-8">{{ $supplier->fantasy_name ?? 'N/A' }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->nome_fantasia ?? 'N/A' }}</dd>
 
                         <dt class="col-sm-4">CPF/CNPJ:</dt>
                         <dd class="col-sm-8">{{ $supplier->cpf_cnpj }}</dd>
 
                         <dt class="col-sm-4">Data de Nascimento:</dt>
-                        <dd class="col-sm-8">{{ optional($supplier->birth_date)->format('d/m/Y') ?? 'N/A' }}</dd>
+                        <dd class="col-sm-8">{{ optional($supplier->data_nascimento)->format('d/m/Y') ?? 'N/A' }}</dd>
 
                         <dt class="col-sm-4">E-mail:</dt>
                         <dd class="col-sm-8">{{ $supplier->email }}</dd>
 
                         <dt class="col-sm-4">Telefone:</dt>
-                        <dd class="col-sm-8">{{ $supplier->phone }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->telefone }}</dd>
 
                         <dt class="col-sm-4">Celular:</dt>
-                        <dd class="col-sm-8">{{ $supplier->cell }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->celular }}</dd>
 
                         <dt class="col-sm-4">Endereço:</dt>
                         <dd class="col-sm-8">
-                            {{ $supplier->address }}, {{ $supplier->number }}
-                            {{ $supplier->complement ? ', '.$supplier->complement : '' }}
+                            {{ $supplier->endereco }}, {{ $supplier->numero }}
+                            {{ $supplier->complemento ? ', '.$supplier->complemento : '' }}
                         </dd>
 
                         <dt class="col-sm-4">Bairro:</dt>
-                        <dd class="col-sm-8">{{ $supplier->neighborhood }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->bairro }}</dd>
 
                         <dt class="col-sm-4">CEP:</dt>
-                        <dd class="col-sm-8">{{ $supplier->postal_code }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->cep }}</dd>
 
                         <dt class="col-sm-4">Cidade:</dt>
-                        <dd class="col-sm-8">{{ $supplier->city }}</dd> <!-- Changed cidade to city -->
+                        <dd class="col-sm-8">{{ $supplier->cidade }}</dd>
 
                         <dt class="col-sm-4">Estado:</dt>
-                        <dd class="col-sm-8">{{ $supplier->state }}</dd> <!-- Changed estado to state -->
+                        <dd class="col-sm-8">{{ $supplier->estado }}</dd>
 
                         <dt class="col-sm-4">País:</dt>
                         <dd class="col-sm-8">{{ $supplier->pais }}</dd>
@@ -64,7 +64,7 @@
                         <dd class="col-sm-8">{{ ucfirst($supplier->status) }}</dd>
 
                         <dt class="col-sm-4">Descrição:</dt>
-                        <dd class="col-sm-8">{{ $supplier->description ?? 'N/A' }}</dd>
+                        <dd class="col-sm-8">{{ $supplier->descricao ?? 'N/A' }}</dd>
                     </dl>
                 </div>
                 <div class="card-footer d-flex justify-content-between">

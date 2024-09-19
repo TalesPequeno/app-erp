@@ -15,10 +15,10 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        $paises = Pais::all(); // Carrega todos os países
-        $estados = Estado::all(); // Carrega todos os estados
-        $cidades = Cidade::all(); // Carrega todas as cidades
-        return view('suppliers.create', compact('paises', 'estados', 'cidades')); // Passa os dados para a view
+        $paises = Pais::all();
+        $estados = Estado::all();
+        $cidades = Cidade::all();
+        return view('suppliers.create', compact('paises', 'estados', 'cidades'));
     }
 
     /**
@@ -27,23 +27,23 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'fantasy_name' => 'nullable|string|max:255',
+            'nome' => 'required|string|max:255',
+            'nome_fantasia' => 'nullable|string|max:255',
             'cpf_cnpj' => 'nullable|string|max:18|unique:suppliers',
-            'birth_date' => 'nullable|date',
+            'data_nascimento' => 'nullable|date',
             'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'cell' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:255',
-            'number' => 'nullable|string|max:10',
-            'complement' => 'nullable|string|max:255',
-            'neighborhood' => 'nullable|string|max:255',
-            'postal_code' => 'nullable|string|max:9',
-            'city' => 'nullable|string|max:255',
-            'state' => 'nullable|string|max:255',
-            'country' => 'nullable|string|max:255',
-            'status' => 'nullable|string|in:active,inactive',
-            'description' => 'nullable|string',
+            'telefone' => 'nullable|string|max:20',
+            'celular' => 'nullable|string|max:20',
+            'endereco' => 'nullable|string|max:255',
+            'numero' => 'nullable|string|max:10',
+            'complemento' => 'nullable|string|max:255',
+            'bairro' => 'nullable|string|max:255',
+            'cep' => 'nullable|string|max:9',
+            'cidade' => 'nullable|string|max:255',
+            'estado' => 'nullable|string|max:255',
+            'pais' => 'nullable|string|max:255',
+            'status' => 'nullable|string|in:ativo,inativo',
+            'descricao' => 'nullable|string',
         ]);
 
         Supplier::create($validatedData);
@@ -56,18 +56,15 @@ class SupplierController extends Controller
      */
     public function index(Request $request)
     {
-        // Captura o termo de busca, se existir
         $search = $request->input('search');
 
-        // Se houver um termo de busca, filtra os fornecedores pelo nome ou email
-        $suppliers = Supplier::query() // Correção: Use Supplier em vez de Cliente
+        $suppliers = Supplier::query()
             ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', "%{$search}%")
+                return $query->where('nome', 'like', "%{$search}%")
                              ->orWhere('email', 'like', "%{$search}%");
             })
-            ->paginate(10); // Exibe 10 fornecedores por página
+            ->paginate(10);
 
-        // Retorna a view com os fornecedores e o termo de busca
         return view('suppliers.index', compact('suppliers'));
     }
 
@@ -84,9 +81,9 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        $paises = Pais::all(); // Carrega todos os países
-        $estados = Estado::all(); // Carrega todos os estados
-        $cidades = Cidade::all(); // Carrega todas as cidades
+        $paises = Pais::all();
+        $estados = Estado::all();
+        $cidades = Cidade::all();
 
         return view('suppliers.edit', compact('supplier', 'paises', 'estados', 'cidades'));
     }
@@ -96,24 +93,25 @@ class SupplierController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
+
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'fantasy_name' => 'nullable|string|max:255',
+            'nome' => 'required|string|max:255',
+            'nome_fantasia' => 'nullable|string|max:255',
             'cpf_cnpj' => 'nullable|string|max:18|unique:suppliers,cpf_cnpj,' . $supplier->id,
-            'birth_date' => 'nullable|date',
+            'data_nascimento' => 'nullable|date',
             'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'cell' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:255',
-            'number' => 'nullable|string|max:10',
-            'complement' => 'nullable|string|max:255',
-            'neighborhood' => 'nullable|string|max:255',
-            'postal_code' => 'nullable|string|max:9',
-            'city' => 'nullable|string|max:255',
-            'state' => 'nullable|string|max:255',
-            'country' => 'nullable|string|max:255',
-            'status' => 'nullable|string|in:active,inactive',
-            'description' => 'nullable|string',
+            'telefone' => 'nullable|string|max:20',
+            'celular' => 'nullable|string|max:20',
+            'endereco' => 'nullable|string|max:255',
+            'numero' => 'nullable|string|max:10',
+            'complemento' => 'nullable|string|max:255',
+            'bairro' => 'nullable|string|max:255',
+            'cep' => 'nullable|string|max:9',
+            'cidade' => 'nullable|string|max:255',
+            'estado' => 'nullable|string|max:255',
+            'pais' => 'nullable|string|max:255',
+            'status' => 'nullable|string|in:ativo,inativo',
+            'descricao' => 'nullable|string',
         ]);
 
         $supplier->update($validatedData);
@@ -136,7 +134,7 @@ class SupplierController extends Controller
      */
     public function states($countryId)
     {
-        $states = Estado::where('pais_id', $countryId)->get(); // Ajustado para pais_id
+        $states = Estado::where('pais_id', $countryId)->get();
         return response()->json($states);
     }
 
@@ -145,7 +143,7 @@ class SupplierController extends Controller
      */
     public function cities($stateId)
     {
-        $cities = Cidade::where('estado_id', $stateId)->get(); // Ajustado para estado_id
+        $cities = Cidade::where('estado_id', $stateId)->get();
         return response()->json($cities);
     }
 }

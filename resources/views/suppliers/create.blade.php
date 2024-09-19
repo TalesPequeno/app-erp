@@ -33,7 +33,7 @@
                     <label for="nome_fantasia">Nome Fantasia</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required placeholder="CPF/CNPJ" maxlength="18" value="{{ old('cpf_cnpj') }}" oninput="formatCpfCnpj(this)">
+                    <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" placeholder="CPF/CNPJ" maxlength="18" value="{{ old('cpf_cnpj') }}" oninput="formatCpfCnpj(this)">
                     <label for="cpf_cnpj">CPF/CNPJ</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -53,12 +53,12 @@
                     <label for="celular">Celular</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="endereco" name="endereco" required placeholder="Endereço" value="{{ old('endereco') }}">
+                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" value="{{ old('endereco') }}">
                     <label for="endereco">Endereço</label>
                 </div>
                 <div class="row g-2 mb-3">
                     <div class="col-md-8 form-floating mb-3">
-                        <input type="text" class="form-control" id="numero" name="numero" required placeholder="Número" value="{{ old('numero') }}">
+                        <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" value="{{ old('numero') }}">
                         <label for="numero">Número</label>
                     </div>
                     <div class="col-md-4 form-floating mb-3">
@@ -68,17 +68,17 @@
                 </div>
                 <div class="row g-2 mb-3">
                     <div class="col-md-6 form-floating mb-3">
-                        <input type="text" class="form-control" id="bairro" name="bairro" required placeholder="Bairro" value="{{ old('bairro') }}">
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" value="{{ old('bairro') }}">
                         <label for="bairro">Bairro</label>
                     </div>
                     <div class="col-md-6 form-floating">
-                        <input type="text" class="form-control" id="cep" name="cep" required placeholder="CEP" maxlength="9" value="{{ old('cep') }}" oninput="formatCep(this)">
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="9" value="{{ old('cep') }}" oninput="formatCep(this)">
                         <label for="cep">CEP</label>
                     </div>
                 </div>
                 <div class="row g-2 mb-3">
                     <div class="col-md-6 form-floating mb-3">
-                        <select class="form-select" id="pais" name="pais" required>
+                        <select class="form-select" id="pais" name="pais">
                             <option value="">Selecione o País</option>
                             @foreach($paises as $pais)
                                 <option value="{{ $pais->id }}" {{ old('pais') == $pais->id ? 'selected' : '' }}>{{ $pais->nome_pt }}</option>
@@ -87,7 +87,7 @@
                         <label for="pais">País</label>
                     </div>
                     <div class="col-md-6 form-floating mb-3">
-                        <select class="form-select" id="estado" name="estado" required>
+                        <select class="form-select" id="estado" name="estado">
                             <option value="">Selecione o Estado</option>
                         </select>
                         <input type="text" class="form-control" id="estado_input" name="estado_input" placeholder="Estado" style="display: none;">
@@ -96,7 +96,7 @@
                 </div>
                 <div class="row g-2 mb-3">
                     <div class="col-md-6 form-floating mb-3">
-                        <select class="form-select" id="cidade" name="cidade" required>
+                        <select class="form-select" id="cidade" name="cidade">
                             <option value="">Selecione a Cidade</option>
                         </select>
                         <input type="text" class="form-control" id="cidade_input" name="cidade_input" placeholder="Cidade" style="display: none;">

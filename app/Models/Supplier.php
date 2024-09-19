@@ -18,23 +18,23 @@ class Supplier extends Model
      * Os atributos que podem ser preenchidos em massa.
      */
     protected $fillable = [
-        'name', // Atualizado para name
-        'fantasy_name', // Atualizado para fantasy_name
+        'nome', // Atualizado para name
+        'nome_fantasia', // Atualizado para fantasy_name
         'cpf_cnpj', // Mantido como cpf_cnpj
-        'birth_date', // Atualizado para birth_date
+        'data_nascimento', // Atualizado para birth_date
         'email',
-        'phone', // Atualizado para phone
-        'cell', // Atualizado para cell
-        'address', // Atualizado para address
-        'number', // Atualizado para number
-        'complement', // Atualizado para complement
-        'neighborhood', // Atualizado para neighborhood
-        'postal_code', // Atualizado para postal_code
+        'telefone', // Atualizado para phone
+        'celular', // Atualizado para cell
+        'endereco', // Atualizado para address
+        'numero', // Atualizado para number
+        'complemento', // Atualizado para complement
+        'bairro', // Atualizado para neighborhood
+        'cep', // Atualizado para postal_code
         'cidade', // Atualizado para city
         'estado', // Atualizado para state
         'pais', // Atualizado para country
         'status', // Atualizado para status
-        'description', // Atualizado para description
+        'descricao', // Atualizado para description
     ];
 
     /**
