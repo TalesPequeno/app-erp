@@ -23,11 +23,11 @@
                 </a>
             </li>
             <li class="nav-item mb-4">
-                <button class="nav-link btn btn-link {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' || $currentRoute == 'produtos.index' || $currentRoute == 'fornecedores.index' ? 'active' : '' }}" onclick="toggleSubMenu('cadastros-submenu')">
+                <button class="nav-link btn btn-link {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' || $currentRoute == 'produtos.index' || $currentRoute == 'suppliers.index' ? 'active' : '' }}" onclick="toggleSubMenu('cadastros-submenu')">
                     <i data-feather="users"></i>
                     Cadastros
                 </button>
-                <ul class="nav flex-column ml-3 {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' || $currentRoute == 'produtos.index' || $currentRoute == 'fornecedores.index' ? '' : 'd-none' }}" id="cadastros-submenu">
+                <ul class="nav flex-column ml-3 {{ Str::startsWith($currentRoute, 'cadastros') || $currentRoute == 'lojas.index' || $currentRoute == 'clientes.index' || $currentRoute == 'produtos.index' || $currentRoute == 'suppliers.index' ? '' : 'd-none' }}" id="cadastros-submenu">
                     <li class="nav-item">
                         <a class="nav-link {{ $currentRoute == 'lojas.index' ? 'active' : '' }}" href="{{ route('lojas.index') }}">Lojas</a>
                     </li>
